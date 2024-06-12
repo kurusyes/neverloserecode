@@ -234,13 +234,13 @@ function Neverlose_Main:encode(data)
         return b:sub(c + 1, c + 1)
     end)..({ '', '==', '=' })[#data % 3 + 1])
 
-    encodedData = "-- Neverlose by Mana64 \n\nreturn function() "..insertRandomWords2(encodedData)..' end) \n\n\n'
+    encodedData = "-- Neverlose Recode by KurusYes \n\nreturn function() "..insertRandomWords2(encodedData)..' end) \n\n\n'
 
     return encodedData
 end
 
 function Neverlose_Main:decode(data)
-    data = data:gsub('^-- Neverlose by Mana64 %s+return%s+function%(%) (.*) end%)%s*\n*$', '%1')
+    data = data:gsub('^-- Neverlose Recode by KurusYes %s+return%s+function%(%) (.*) end%)%s*\n*$', '%1')
     data = removeRandomWords(data)
 
     local b = 'ABCDLPWKtcPjpxQzc26CxTtPFuQMNfm2RfEHfKmnopqrstuvwxyz0123456789+/'
@@ -453,7 +453,7 @@ function Neverlose_Main:Window(config)
     local KeyFrameLine2 = Instance.new("Frame")
 
     KeyFrame.Name = "KeyFrame"
-    KeyFrame.Parent = Neverlose
+    KeyFrame.Parent = Neverlose Recode
     KeyFrame.BackgroundColor3 = Color3.fromRGB(9, 9, 13)
     KeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
     KeyFrame.BorderSizePixel = 0
@@ -2692,7 +2692,7 @@ function Neverlose_Main:Window(config)
             -- SettingsFrame.Visible = false
             -- SettingsToggled = false
             Neverlose_Main:Notify({
-                Title = "Neverlose",
+                Title = "KurusWare",
                 Text = "Feature Temporarily Disabled!"
             })
         end)
@@ -3095,7 +3095,7 @@ function Neverlose_Main:Window(config)
             if isfile(Folder1.."/LastLoaded.txt") then
                 return Neverlose_Main.HttpService:JSONDecode(readfile(Folder1.."/LastLoaded.txt")).CFG
             else
-                Neverlose_Main:Notify({Title = "Neverlose",
+                Neverlose_Main:Notify({Title = "KurusWare",
                     Text = 'Please Save a config first!',
                     Time = 2,
                     AutoClose = true
@@ -3116,13 +3116,13 @@ function Neverlose_Main:Window(config)
         
         SaveCFGB.MouseButton1Click:Connect(function()
             if Neverlose_Main.Targeted_Config == "" then
-                Neverlose_Main:Notify({Title = "Neverlose",
+                Neverlose_Main:Notify({Title = "KurusWare",
                     Text = 'Please Select a config first!',
                     Time = 2,
                     AutoClose = true
                 })
             else
-                Neverlose_Main:Notify({Title = "Neverlose",
+                Neverlose_Main:Notify({Title = "KurusWare",
                     Text = "Saved to: "..tostring(Neverlose_Main.Targeted_Config),
                     Time = 2,
                     AutoClose = true
@@ -6213,14 +6213,14 @@ function Neverlose_Main:Window(config)
         Sec2:Button("Create Config", function()
             Neverlose_Main:CreateCfg(tostring(Config_Name))
             Neverlose_Main:Notify({
-                Title = "Neverlose",
+                Title = "KurusWare",
                 Text = "Created Config: "..tostring(Config_Name)
             })
         end)
 
         local Configs_Drop = Sec1:Dropdown("Select Config", Neverlose_Main:GetConfigNames(), function(t)
             Selected_Config = t
-            Neverlose_Main:Notify({Title = "Neverlose",
+            Neverlose_Main:Notify({Title = "KurusWare",
                 Text = "Targeted CFG: "..tostring(Selected_Config)
             })
             Neverlose_Main:SetCFG(tostring(Selected_Config))
@@ -6231,7 +6231,7 @@ function Neverlose_Main:Window(config)
         end)
         Sec1:Line()
         Sec1:Button("Load Selected Config", function()
-            Neverlose_Main:Notify({Title = "Neverlose",
+            Neverlose_Main:Notify({Title = "KurusWare",
                 Text = "Loaded Config: "..tostring(Selected_Config)
             })
             Neverlose_Main:LoadCfg(tostring(Selected_Config))
