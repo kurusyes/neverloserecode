@@ -12,6 +12,10 @@ function Build_Info:BuildType()
     return 'Alpha'
 end
 
+function Build_Info:LibraryType()
+    return 'Neverlose Recode v1'
+end
+
 function Build_Info:GetNews()
     return 'Nope'
 end
